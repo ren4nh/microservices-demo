@@ -1,0 +1,31 @@
+server:
+  port: 8888
+
+logging:
+  level:
+    ROOT: INFO
+    org.spring.framework.cloud.config: DEBUG
+
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ren4nh/config-server-repository
+          default-label: main
+          username: ren4nh
+          password: '{cipher}dd09294f0febcc7d1f6ecb1794cfbdc354d076cd5e3439254ca55307d098ccea889c48aec4fab83d8fdfb915ed9a45a88edd443ccdc092f95c2c502885e237fb'
+          clone-on-start: true
+    fail-fast: true
+  security:
+    user:
+      name: spring_cloud_user
+      password: '1234'
+
+log:
+  app-name: config-server
+
+encrypt:
+  key: 'Demo_Pwd!2020'
